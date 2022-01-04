@@ -8,7 +8,9 @@ def runCIStep() {
     def summaryMessage = "integration-test passed"
 
     try {
-        sh 'echo 1'
+        def scmVars = checkout scm
+        def branch = scmVars.GIT_BRANCH
+        sh "${branch}"
     }
     catch(e) {
         summaryMessage = e.message
