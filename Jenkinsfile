@@ -1,5 +1,3 @@
-def label = "worker-${UUID.randomUUID().toString()}"
-
 def setFailure() {
     currentBuild.result = "FAILURE"
 }
@@ -28,17 +26,14 @@ def runCIStep() {
     }
 }
 
-podTemplate(label: label, cloud: 'kubernetes',
-    containers: [],
-    volumes: [
-        hostPathVolume(mountPath: '/root/.gitconfig', hostPath: '/root/.gitconfig')
-    ]
-) {
-    node(label) {
-        stage('PingCode Flow CI/CD') {
-            script {
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
                 runCIStep();
             }
         }
     }
- }
+}
