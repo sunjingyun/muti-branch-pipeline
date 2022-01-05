@@ -13,6 +13,7 @@ def runCIStep() {
         echo "${branch}"
         sh "git version"
         sh "git tag"
+        sh "printenv"
         sh "git log"
     }
     catch(e) {
