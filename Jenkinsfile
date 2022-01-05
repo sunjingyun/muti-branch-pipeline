@@ -11,6 +11,7 @@ def runCIStep() {
         def scmVars = checkout scm
         def branch = scmVars.GIT_BRANCH
         echo "${branch}"
+        sh "git log"
     }
     catch(e) {
         summaryMessage = e.message
