@@ -1,3 +1,5 @@
+def label = "worker-${UUID.randomUUID().toString()}"
+
 def setFailure() {
     currentBuild.result = "FAILURE"
 }
