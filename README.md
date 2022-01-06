@@ -1,6 +1,3 @@
 # muti-branch-pipeline
 
 
-
-
-
